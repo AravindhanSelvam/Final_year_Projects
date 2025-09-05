@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://gdprinformer.com/wp-content/uploads/2017/09/fraud-laptop.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 0 15px #f50202;
+            animation: warningPulse 2s infinite;
+        }
+
+        @keyframes warningPulse {
+            0% { box-shadow: 0 0 10px #ff0000; }
+            50% { box-shadow: 0 0 25px #ff0000; }
+            100% { box-shadow: 0 0 10px #ff0000; }
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #ff0000;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #222;
+            color: #fff;
+            border: 1px solid #ff0000;
+        }
+
+        input::placeholder {
+            color: #ccc;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            background-color: #ff0000;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #b30000;
+        }
+
+        .links {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .links a {
+            color: #ffcc66;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+        }
+
+        .navbar {
+            background-color: rgba(255, 0, 0, 0.8);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 255, 0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            animation: shake 0.6s infinite alternate;
+            color: #fff;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(3px); }
+        }
+
+        @media (max-width: 500px) {
+            .navbar h1 {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>⚠️ Fraud Alert</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Signup for Loan Approval System</h1>
+        <form action="/signup" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+            <div class="links">
+                Already have an account? <a href="/login">Login</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

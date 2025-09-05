@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            background: linear-gradient(120deg, #3a0000, #000000);
+            color: #fff;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .navbar {
+            background-color: rgba(255, 0, 0, 0.8);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 2rem;
+            animation: shake 0.8s infinite alternate;
+            color: #fff;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(3px); }
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 30px;
+            background-color: rgba(0, 0, 0, 0.85);
+            border: 2px solid red;
+            border-radius: 15px;
+            margin: 80px auto;
+            max-width: 800px;
+            animation: warningPulse 2s infinite;
+        }
+
+        @keyframes warningPulse {
+            0% { box-shadow: 0 0 10px red; }
+            50% { box-shadow: 0 0 25px red; }
+            100% { box-shadow: 0 0 10px red; }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff3333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #f0f0f0;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .result {
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 20px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .rejected {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .approved {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .back-button {
+            margin-top: 30px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            padding: 14px 28px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            margin: 10px;
+            display: inline-block;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        .back-button a:hover {
+            background: linear-gradient(45deg, #0056b3, #003f7f);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .result {
+                font-size: 1.5rem;
+                padding: 15px 20px;
+            }
+
+            .back-button a {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Online Fraud Prediction</h1>
+        {% if prediction == 'yes' %}
+            <p>⚠️ Sorry, YOUR PAYMENT TRANSACTION IS FRAUD.</p>
+            <div class="result rejected">
+                FRAUD TRANSACTION
+            </div>
+        {% else %}
+            <p>✅ Congratulations! Your PAYMENT IS NOT FRAUD.</p>
+            <div class="result approved">
+                GENUINE TRANSACTION
+            </div>
+        {% endif %}
+
+        <div class="back-button">
+            <a href="/home">🏠 Home</a>
+            <a href="/predict">🔁 Go Back</a>
+        </div>
+    </div>
+</body>
+</html>

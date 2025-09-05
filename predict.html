@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title></title>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+     margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://gdprinformer.com/wp-content/uploads/2017/09/fraud-laptop.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .navbar {
+      background-color: rgba(255, 0, 0, 0.8);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center; /* Center the title */
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #fff;
+      animation: shake 0.6s infinite alternate;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(3px); }
+    }
+
+    @media (max-width: 500px) {
+      .navbar h2 {
+        animation: none;
+      }
+    }
+
+    .container {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 40px 30px;
+      border: 2px solid red;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 15px red;
+      animation: warningPulse 2s infinite;
+    }
+
+    @keyframes warningPulse {
+      0% { box-shadow: 0 0 10px red; }
+      50% { box-shadow: 0 0 25px red; }
+      100% { box-shadow: 0 0 10px red; }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #ff4d4d;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input,
+    select {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+      background: #222;
+      color: #fff;
+      border: 1px solid #ff3333;
+    }
+
+    input::placeholder {
+      color: #ccc;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      background-color: #b30000;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff0000;
+    }
+
+    .error-message {
+      color: #ff4d4d;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      display: none; /* Hide by default */
+    }
+
+    .links {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    .links a {
+      color: #ffcc66;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <h2>Online Fraud Prediction</h2>
+  </div>
+
+  <div class="container">
+    <h1>Online Fraud Prediction</h1>
+    <form method="POST">
+      <input type="text" name="Amount" placeholder="Transaction Amount" required />
+      <input type="text" name="Old_balance" placeholder="Old Balance" required />
+      <input type="text" name="New_balance" placeholder="New Balance" required />
+
+      <select name="Transaction_type" required>
+        <option value="" disabled selected>Select Transaction Type</option>
+        <option value="Transfer">Transfer</option>
+        <option value="Cash Out">Cash Out</option>
+        <option value="Debit">Debit</option>
+        <option value="Payment">Payment</option>
+        <option value="Credit">Credit</option>
+      </select>
+
+      <input type="text" name="Location" placeholder="Location" required />
+
+      <select name="is_vpn" required>
+        <option value="" disabled selected>Using VPN?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <input type="text" name="email" placeholder="Email" required />
+      <button type="submit">Submit Transaction</button>
+    </form>
+  </div>
+
+</body>
+</html>
